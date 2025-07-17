@@ -58,9 +58,7 @@ export const handlePromise = (promise) => {
   // Your code goes here...
   return promise
     .then((res) => res)
-    .catch((err) => {
-      return err.message ? onReject(err) : err;
-    });
+    .catch((err) => (err.message ? onReject(err) : err));
 };
 
 // === TEST YOURSELF ===

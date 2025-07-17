@@ -13,7 +13,7 @@
 export function iterate(arg) {
   // Your code goes here...
   console.log(arg);
-  return (arg += 1);
+  return ++arg;
 }
 
 /**
@@ -38,7 +38,8 @@ export function alwaysThrows() {
 
 export function onReject(val) {
   // Your code goes here...
-  val instanceof Error ? console.log(val.message) : console.log(val);
+  const valueToLog = val.message || val;
+  console.log(valueToLog);
 }
 
 /**
@@ -63,8 +64,7 @@ export function onReject(val) {
  */
 
 // Your code goes here...
-export const promise = Promise.resolve(1)
-  .then(iterate)
+export const promise = Promise.resolve(iterate(1))
   .then(iterate)
   .then(iterate)
   .then(iterate)
